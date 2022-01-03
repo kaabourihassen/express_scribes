@@ -15,5 +15,7 @@ module.exports = function(app) {
 
   app.get('/api/test/admin', [authJwt.verifyToken, authJwt.isAdmin], controller.adminBoard)
   router.put('/changeGeneralInfos/:id',[authJwt.verifyToken],controller.changeGeneralInfos)
+  router.put('/changePassword/:id',[authJwt.verifyToken],controller.changePassword)
+  router.get("/:id",[authJwt.verifyToken],controller.getUser)
   app.use('/user', router);
 }
